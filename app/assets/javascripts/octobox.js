@@ -28,6 +28,13 @@ var Octobox = (function() {
     setRowCurrent(target, true);
   };
 
+  var doThing = function(event) {
+    // Don't event.preventDefault(), since we want the
+    // normal clicking behavior for links, starring, etc
+    console.log(event);
+    console.log("fooooood");
+  };
+
   var updateFavicon = function () {
     $.get( "/notifications/unread_count", function(data) {
       setFavicon(data.count)
@@ -682,6 +689,7 @@ var Octobox = (function() {
     deleteSelected: deleteSelected,
     deleteThread: deleteThread,
     viewThread: viewThread,
-    expandComments: expandComments
+    expandComments: expandComments,
+    doThing: doThing
   }
 })();
